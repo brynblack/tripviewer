@@ -8,12 +8,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:tripviewer/main.dart';
+import 'package:transitly/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const TripViewer());
+    await tester.pumpWidget(const Transitly());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

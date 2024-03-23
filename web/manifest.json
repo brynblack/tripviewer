@@ -1,6 +1,6 @@
 {
-    "name": "tripviewer",
-    "short_name": "tripviewer",
+    "name": "transitly",
+    "short_name": "transitly",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

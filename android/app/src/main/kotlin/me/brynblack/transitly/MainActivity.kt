@@ -1,4 +1,4 @@
-package me.brynblack.tripviewer
+package me.brynblack.transitly
 
 import io.flutter.embedding.android.FlutterActivity
 

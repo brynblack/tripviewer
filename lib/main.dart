@@ -2,10 +2,10 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() => runApp(const TripViewer());
+void main() => runApp(const Transitly());
 
-class TripViewer extends StatelessWidget {
-  const TripViewer({super.key});
+class Transitly extends StatelessWidget {
+  const Transitly({super.key});
 
   static final _defaultLightColorScheme = ColorScheme.fromSeed(
       seedColor: Colors.pink, brightness: Brightness.light);
@@ -17,7 +17,7 @@ class TripViewer extends StatelessWidget {
   Widget build(BuildContext context) {
     return DynamicColorBuilder(builder: (lightColorScheme, darkColorScheme) {
       return MaterialApp(
-        title: 'TripViewer',
+        title: 'Transitly',
         theme: ThemeData(
             colorScheme: lightColorScheme ?? _defaultLightColorScheme,
             useMaterial3: true),
@@ -25,6 +25,7 @@ class TripViewer extends StatelessWidget {
             colorScheme: darkColorScheme ?? _defaultDarkColorScheme,
             useMaterial3: true),
         home: const HomePage(),
+        debugShowCheckedModeBanner: false,
       );
     });
   }
@@ -37,8 +38,8 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class TripCard extends StatelessWidget {
-  const TripCard(
+class RouteCard extends StatelessWidget {
+  const RouteCard(
       {super.key, required this.to, required this.from, required this.time});
 
   final String to, from, time;
@@ -55,18 +56,24 @@ class TripCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text(
-                    to,
-                    style: const TextStyle(fontSize: 16),
-                  ),
-                  Text(
-                    'via $from',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
+                Row(children: [
+                  const Padding(
+                      padding: EdgeInsets.only(right: 12), child: Text('|')),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          to,
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        Text(
+                          'via $from',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                        ),
+                      ])
                 ]),
                 Text(
                   time,
@@ -100,42 +107,56 @@ class _HomePageState extends State<HomePage> {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TripViewer'),
+        title: const Text('Transitly'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.menu_rounded),
+            icon: const Icon(Icons.search),
             tooltip: 'Options',
+            iconSize: 28.0,
+            onPressed: () => {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.add),
+            tooltip: 'Add',
             iconSize: 28.0,
             onPressed: () => {},
           )
         ],
-        systemOverlayStyle: const SystemUiOverlayStyle(
+        systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: Colors.transparent,
+            statusBarIconBrightness:
+                Theme.of(context).brightness == Brightness.dark
+                    ? Brightness.light
+                    : Brightness.dark,
             systemNavigationBarColor: Colors.transparent),
       ),
       body: <Widget>[
         ListView(
           children: const [
-            TripCard(
+            RouteCard(
               to: 'North Sydney',
               from: 'Quakers Hill',
               time: '4:23pm',
             ),
-            TripCard(
+            RouteCard(
               to: 'Central',
               from: 'Schofields',
               time: '5:06pm',
             ),
-            TripCard(
+            RouteCard(
               to: 'Linfield',
               from: 'Central',
               time: '6:48pm',
             ),
-            TripCard(
+            RouteCard(
               to: 'Harris Park',
               from: 'Paramatta',
               time: '7:32pm',
             ),
+            Center(
+                child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Text('Add more by tapping the "+" button', style: TextStyle(color: Colors.white54),)))
           ],
         ),
         const Text('insert map here'),

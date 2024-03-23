@@ -1,5 +1,5 @@
-name: tripviewer
-description: "Plan, share and find routes to your next destination."
+name: transitly
+description: "Find, plan and share routes to your next destination."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev

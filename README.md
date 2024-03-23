@@ -1,16 +1,8 @@
-# tripviewer
+# Transitly
 
-Plan, share and find routes to your next destination.
+Find, plan and share routes to your next destination.
 
-## Getting Started
+## License
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The source code for this project is licensed under the GPL-3.0 license. You may find the conditions
+of the license [here](LICENSE).

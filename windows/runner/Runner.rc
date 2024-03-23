@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "me.brynblack" "\0"
-            VALUE "FileDescription", "tripviewer" "\0"
+            VALUE "FileDescription", "transitly" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "tripviewer" "\0"
+            VALUE "InternalName", "transitly" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 me.brynblack. All rights reserved." "\0"
-            VALUE "OriginalFilename", "tripviewer.exe" "\0"
-            VALUE "ProductName", "tripviewer" "\0"
+            VALUE "OriginalFilename", "transitly.exe" "\0"
+            VALUE "ProductName", "transitly" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
